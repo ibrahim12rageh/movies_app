@@ -22,7 +22,7 @@ class drawerfunc extends StatefulWidget {
 }
 
 class _drawerfuncState extends State<drawerfunc> {
-  File? _image;
+  // File? _image;
 
   Future<void> SelectImage() async {
     // final pickedfile =
@@ -47,14 +47,14 @@ class _drawerfuncState extends State<drawerfunc> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    SharedPreferences.getInstance().then((sp) {
-      setState(() {
-        _image = File(sp.getString('imagepath')!);
-      });
-    });
-  }
+  // void initState() {
+  //   super.initState();
+  //   SharedPreferences.getInstance().then((sp) {
+  //     setState(() {
+  //       _image = File(sp.getString('imagepath')!);
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -67,28 +67,10 @@ class _drawerfuncState extends State<drawerfunc> {
               child: Container(
                 child: Column(
                   children: [
-                    GestureDetector(
-                      onTap: () async {
-                        await SelectImage();
-                        //toast message
-                        Fluttertoast.showToast(
-                            msg: "Image Changed",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.grey,
-                            textColor: Colors.white,
-                            fontSize: 16.0);
-                      },
-                      child: _image == null
-                          ? CircleAvatar(
-                              radius: 50,
-                              backgroundImage: AssetImage('assets/user.png'),
-                            )
-                          : CircleAvatar(
-                              radius: 50,
-                              backgroundImage: FileImage(_image!),
-                            ),
+
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('asset/images/route_image.jpg'), ///FileImage(_image!)
                     ),
                     SizedBox(height: 10),
                     Text(
@@ -107,71 +89,7 @@ class _drawerfuncState extends State<drawerfunc> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => FavoriateMovies()));
             }),
-            listtilefunc('Our Blogs', FontAwesomeIcons.blogger,
-                ontap: () async {
-              //webview for blog
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                          backgroundColor: Color.fromRGBO(18, 18, 18, 0.5),
-                          appBar: AppBar(
-                            backgroundColor: Color.fromRGBO(18, 18, 18, 0.9),
-                            title: Text('Our Blogs'),
-                          ),
-                          body: WebViewWidget(controller: WebViewController(
-                             
-                             
-                          ),)
 
-                          // body: WebView(
-                          //   initialUrl: 'https://niranjandahal.com.np/',
-                          //   javascriptMode: JavascriptMode.unrestricted,
-                          // ),
-                          )));
-            }),
-            listtilefunc('Our Website', FontAwesomeIcons.solidNewspaper,
-                ontap: () async {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                            backgroundColor: Color.fromRGBO(18, 18, 18, 0.5),
-                            appBar: AppBar(
-                              backgroundColor: Color.fromRGBO(18, 18, 18, 0.9),
-                              title: Text('Our Website'),
-                            ),
-                            // body: WebView(
-                            //   initialUrl:
-                            //       'https://niranjandahalyt.blogspot.com/',
-                            //   javascriptMode: JavascriptMode.unrestricted,
-                            // ),
-                          )));
-            }),
-            listtilefunc('Subscribe US', FontAwesomeIcons.youtube,
-                ontap: () async {
-              var url =
-                  'https://www.youtube.com/channel/UCeJnnsTq-Lh9E16kCEK49rQ?sub_confirmation=1';
-              await launch(url);
-            }),
-            listtilefunc('About', Icons.info, ontap: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      backgroundColor: Color.fromRGBO(18, 18, 18, 0.9),
-                      title: overviewtext(
-                          'This App is made by Niranjan Dahal.User can explore,get Details of latest Movies/series.TMDB API is used to fetch data.'),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('Ok'))
-                      ],
-                    );
-                  });
-            }),
             listtilefunc('Quit', Icons.exit_to_app_rounded, ontap: () {
               SystemNavigator.pop();
             }),

@@ -30,7 +30,6 @@ class _addtofavoriateState extends State<addtofavoriate> {
         print('notanythingfound');
         favoriatecolor = Colors.white;
       } else {
-        //print the tmdbname and tmdbid and tmdbtype and tmdbrating from database
 
         print('surelyfound');
         favoriatecolor = Colors.red;
@@ -136,14 +135,13 @@ class _addtofavoriateState extends State<addtofavoriate> {
           ),
           GestureDetector(
             onTap: () {
-              //show dialog box with share option and copy link option and share to social media option and copy link option and share to social media option
               showDialog(
                   context: context,
                   builder: (context) {
                     return AlertDialog(
                       backgroundColor: Color.fromRGBO(18, 18, 18, 1),
                       title: normaltext(
-                        "Movie Hunt By Niranjan",
+                        "Movie Hunt By ibrahim and ali",
                       ),
                       content: Container(
                         height: 180,

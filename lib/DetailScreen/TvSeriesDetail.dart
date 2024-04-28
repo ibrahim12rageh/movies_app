@@ -325,7 +325,6 @@ class _TvSeriesDetailsState extends State<TvSeriesDetails> {
                           'tv', recommendserieslist.length),
                       Container(
                           //     height: 50,
-                          //     child: Center(child: normaltext("By Niranjan Dahal"))
                           )
                     ]))
                   ]);

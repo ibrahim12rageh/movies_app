@@ -299,7 +299,6 @@ class _MovieDetailsState extends State<MovieDetails> {
                           "movie", recommendedmovieslist.length),
                       // Container(
                       //     height: 50,
-                      //     child: Center(child: normaltext("By Niranjan Dahal")))
                     ]))
                   ]);
             } else {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'HomePage/HomePage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -31,62 +30,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: intermediatescreen(),
+      title: 'movies app',
+      home: MyHomePage(),
     );
   }
 }
 
-class intermediatescreen extends StatefulWidget {
-  const intermediatescreen({super.key});
 
-  @override
-  State<intermediatescreen> createState() => _intermediatescreenState();
-}
-
-class _intermediatescreenState extends State<intermediatescreen> {
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedSplashScreen(
-      // disableNavigation: true,
-      backgroundColor: Color.fromRGBO(18, 18, 18, 1),
-
-      duration: 2000,
-      nextScreen: MyHomePage(),
-      splash: Container(
-        child: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('asset/icon.png'),
-                          fit: BoxFit.contain)),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  child: Text(
-                    'By Niranjan dahal',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-
-      // splash: Image.asset('assets/images/background.jpg'),
-      splashTransition: SplashTransition.fadeTransition,
-      splashIconSize: 200,
-      // centered: false,
-    );
-  }
-}

@@ -81,69 +81,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         body: CustomScrollView(physics: BouncingScrollPhysics(), slivers: [
           SliverAppBar(
               backgroundColor: Color.fromRGBO(18, 18, 18, 0.9),
-              title: //switch between the trending this week and trending today
-                  Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Trending' + ' 🔥',
-                      style: TextStyle(
-                          color: Colors.white.withOpacity(0.8), fontSize: 16)),
-                  SizedBox(width: 10),
-                  Container(
-                    height: 45,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(6)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: DropdownButton(
-                        autofocus: true,
-                        underline:
-                            Container(height: 0, color: Colors.transparent),
-                        dropdownColor: Colors.black.withOpacity(0.6),
-                        icon: Icon(
-                          Icons.arrow_drop_down_sharp,
-                          color: Colors.amber,
-                          size: 30,
-                        ),
-                        value: uval,
-                        items: [
-                          DropdownMenuItem(
-                            child: Text(
-                              'Weekly',
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                            value: 1,
-                          ),
-                          DropdownMenuItem(
-                            child: Text(
-                              'Daily',
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                            value: 2,
-                          ),
-                        ],
-                        onChanged: (value) {
-                          setState(() {
-                            trendingweek.clear();
-                            uval = int.parse(value.toString());
-                            // trendinglist(uval);
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              centerTitle: true,
-              // automaticallyImplyLeading: false,
+
               toolbarHeight: 60,
               pinned: true,
               expandedHeight: MediaQuery.of(context).size.height * 0.5,
